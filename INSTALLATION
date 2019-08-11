@@ -1,0 +1,75 @@
+Help ToolKit for Motif Build and Installation Instructions
+
+Building the library
+--------------------
+The Help ToolKit for Motif(tm) is distributed as ANSI C source code and must 
+be compiled on your system. Imake is used to attempt to provide a portable 
+build mechanism.  If the imake installation on your system is incorrect or 
+omitted, then you will need to manually build the components.  
+
+Configuring the build
+---------------------
+The file XscHelp.tmpl is used to configure the build.  You should examine is 
+carefully and make any appropriate changes before building the library. 
+
+Creating the makefiles
+----------------------
+Once the XscHelp.tmpl file has been examined and/or modified, you can build 
+the distribution with the following commands:
+
+   xmkmf
+   make World
+
+This will build the product and any example programs included in the 
+distribution.  If you want to capture the build output, use the following 
+commands instead:
+
+   xmkmf
+   make World >& makelog &
+   tail -f makelog
+   
+If the xmkmf script is not installed on your system, replace it with the 
+following command:
+
+   imake -DuseInstalled -I/usr/lib/X11/config
+   
+If you do not have imake installed on your system, then the product will 
+need to be built manually.  
+
+Installing the product
+----------------------
+Once the product has been built, you can install the library, header files, 
+example programs, and the XscHelp.tmpl file by typing the following command 
+in the top level product directory:
+
+   make -k install
+
+If you only want to install the libraries and header files, change directories 
+to the 'source' directory and type the "make install" command there.
+
+The libraries and header files are installed in the directories specified by 
+the XSCHELP_LIBDIR and XSCHELP_INCDIR variables set in the XscHelp.tmpl file.  
+Remember that you will need to have superuser access to install the product 
+in the system directories.
+
+Compiling and linking with the product
+--------------------------------------
+To compile a program that uses the Help ToolKit for Motif, the compiler must 
+be able to locate the header files.  This will happen automatically if the 
+header files are installed in the directory /usr/include/Xsc.  However, if 
+it is in another location, such as /usr/X11R6/include/Xsc, then you may have 
+to specify the location on the compiler command line as shown below:
+
+   gcc -c -I/usr/X11R6/include my_prog.c
+
+To link programs with the Help ToolKit for Motif, you need to specify the 
+desired XscHelp libraries with the -l command line argument.  You may also 
+need to specify the location of the archive files with the -L command line 
+argument.
+
+The core functions in the product are located in the archive libXscHelp.a.  
+The optional CDE library, available with the registered version, is called 
+libXscCdeHelp.a.  Your link line, as an example, could look like the following:
+
+   gcc -o my_prog my_prog.o -L/usr/X11R6/lib -lXscHelp -lXm -lXt -lX11 -lXext
+   

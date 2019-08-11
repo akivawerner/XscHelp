@@ -1,0 +1,70 @@
+/*---------------------------------------------------------------------------*/
+/* Based on the top Imakefile for the Xmt library, written by David Flanagan */
+/* Used with permission                                                      */
+/*---------------------------------------------------------------------------*/
+/* modified from the X11R5 toplevel Imakefile */
+#ifndef UseInstalled
+#define UseInstalled       /* always use installed X imake */
+#endif
+#ifndef XscHelpBuildTree
+#define XscHelpBuildTree       /* from this Imakefile, always build the tree */
+#endif
+
+#include "XscHelp.tmpl"
+
+#define IHaveSubdirs
+#define PassCDebugFlags
+
+      WORLDOPTS = -k
+        SUBDIRS = src examples
+
+MakeSubdirs($(SUBDIRS))
+
+DependSubdirs($(SUBDIRS))
+
+World::
+	@echo ""
+	@echo "Building the Help ToolKit for Motif"
+	@echo ""
+	@echo "#####################################"
+	@echo "# Did you remember to check and set #"
+	@echo "# the variables in ./XscHelp.tmpl?   #"
+	@echo "#####################################"
+	@echo ""
+	@date
+	@echo ""
+	-$(RM) Makefile.bak; $(MV) Makefile Makefile.bak
+	$(MAKE) $(MFLAGS) -f Makefile.bak Makefile
+	$(MAKE) $(MFLAGS) Makefiles
+	$(MAKE) $(MFLAGS) clean
+	$(MAKE) $(MFLAGS) includes
+	$(MAKE) $(MFLAGS) depend
+	$(MAKE) $(MFLAGS) $(WORLDOPTS)
+	@echo ""
+	@date
+	@echo ""
+	@echo "Full build of the Help ToolKit for Motif complete."
+	@echo ""
+
+Everything::
+	@echo ""
+	@echo "Rebuilding the Help ToolKit for Motif"
+	@echo ""
+	@date
+	@echo ""
+	-$(RM) Makefile.bak; $(MV) Makefile Makefile.bak
+	$(MAKE) $(MFLAGS) -f Makefile.bak Makefile
+	$(MAKE) $(MFLAGS) Makefiles
+	$(MAKE) $(MFLAGS) includes
+	$(MAKE) $(MFLAGS) depend
+	$(MAKE) $(MFLAGS) $(WORLDOPTS)
+	@echo ""
+	@date
+	@echo ""
+	@echo "Rebuild of the Help ToolKit for Motif complete."
+	@echo ""
+
+/* 
+ * target to install XscHelp.tmpl in /usr/lib/X11/config
+ */
+InstallNonExec(XscHelp.tmpl, $(IRULESRC))

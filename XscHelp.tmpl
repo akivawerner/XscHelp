@@ -1,0 +1,198 @@
+/*---------------------------------------------------------------------*/
+/* Based on the Xmt.tmpl in the Xmt library, written by David Flanagan */
+/* Used with permission                                                */
+/*---------------------------------------------------------------------*/
+/*
+** Please read the comments below, and follow the directions they give.
+** They explain how to tailor the Help Toolkit build to work correctly at your
+** site, and also how to compile in workarounds for certain bugs that 
+** appear on particular platforms.  If you find bugs in the Help ToolKit once 
+** you've compiled it, you may want to come back to this file to see if there
+** is a workaround for the but that you can enable, and recompile.
+*/
+
+/*
+ * These variables control the types of library that will be built.
+ * Set them as appropriate.
+ */
+#define DoNormalLib YES
+#define DoSharedLib NO
+#define DoDebugLib NO
+#define DoProfileLib NO
+
+
+/*
+ * Specify the type of external library support to build into XscHelp.  
+ * You must have CDE include files and libraries to build with CDE 
+ * support.  You _must_ have Motif to build the XscHelp Library.
+ */
+#define XscHelpUseCDE NO
+
+/* 
+ * These variables specify where the XscHelp library and header
+ * files will be installed.  Change them if you want.
+ * If you want to use subdirectories of your home directory, remember
+ * that you can't use the c-shell '~' syntax here; you must use the
+ * complete pathname of your home directory.
+ *
+ * The Imakefile in the clients directory will attempt to install
+ * client programs in the standard X11 directory (/usr/bin/X11,
+ * /usr/local/X11R5/bin/X11, or something like that.)  If you want
+ * them somewhere else, just put them there by hand.
+ */
+    XSCHELP_LIBDIR = /usr/X11R6/lib
+    XSCHELP_INCDIR = /usr/X11R6/include
+
+/*
+ * These variables specify where the compiler should look for your
+ * installed Motif and Xt libraries and header files.  Specify
+ * the location of your CDE, Motif and X libraries or header 
+ * using the -L or -I compiler flag, as appropriate.
+ * 
+ * (I could figure this information out from the Motif and X template
+ * files, but not all sites have those templates installed properly,
+ * so XscHelp requires that you explicitly specify the information here.)
+ */
+    XSCHELP_XTLIB = -L/usr/X11R6/lib
+    XSCHELP_XTINC = -I/usr/X11R6/include
+    XSCHELP_XMLIB = -L/usr/X11R6/lib
+    XSCHELP_XMINC = -I/usr/X11R6/include
+    XSCHELP_DTLIB = -L/usr/dt/lib
+    XSCHELP_DTINC = -I/usr/dt/include
+
+/*
+ * These variables specify the names of the various libraries
+ * that a XscHelp application links against.  These are the standard
+ * names, but you can change them if you want to use a library
+ * installed with a non-standard name, like Xm1.1, or XtR4, for example.
+ * The only thing these affect is the definition of XscHelpLibs below.
+ */
+#define XscHelpLib -lXscHelp
+#define XscHelpDtLib -lXscCdeHelp -lDtHelp -lDtSvc -lslang
+#define XscHelpXmLib -lXm
+#define XscHelpXtLib -lXt
+#define XscHelpXLib -lX11
+
+/*
+ * Define this variable if you need to use extra libraries when linking
+ * with Motif.  Some platforms have to link with libPW.a, for example
+ * to get the regexp() functions.
+ */
+    XSCHELP_EXTRALIBS = /* eg: -lPW */
+
+
+/*
+ * If you don't like the compiler or compiler options imake uses by
+ * default, you can set a different compiler here.  Uncomment the line
+ * below and set the compiler you want.  It is probably safest, though
+ * to use whatever compiler and options you get by default.
+ * 
+ * Note: setting this variable will probably only work if you have X11R5
+ *       and are not building a shared library.
+ */
+/* #define XscHelpCcCmd gcc -ansi */
+
+/*
+ * Don't set this variable unless you are modifying the source code
+ */
+#define XscHelpSharedLibraryRevision 1.0
+
+/*
+ * ======================================================================
+ * Don't change anything below this line
+ * ======================================================================
+ */
+
+/*
+ * Define all the required libraries
+ */
+    XSCHELP_LIB = XscHelpLib
+    
+#if XscHelpUseCDE
+    DTLIB = XscHelpDtLib
+    DTFLAGS = -DUSE_CDE
+#else
+    DTLIB = 
+    DTFLAGS =
+#endif
+    XMLIB = XscHelpXmLib
+    XTLIB = XscHelpXtLib
+    XLIB = XscHelpXLib
+    
+/*
+ * You can (should) use this variable when you are writing Imakefiles that 
+ * include this template file.  If you are using a non-standard version of 
+ * one or more libs, you can use the individual library variables directly.
+ */
+#define XscHelpLibs $(XSCHELP_LIB) $(DTLIB) $(XMLIB) $(XTLIB) $(XLIB) $(XSCHELP_EXTRALIBS)
+
+/* don't use tabs to define make variables, as some CPPs won't strip them */
+#ifdef XscHelpCcCmd
+#undef  CcCmd
+#define CcCmd XscHelpCcCmd
+    CC = XscHelpCcCmd
+#endif
+
+/* 
+ * When compiling a file, the following variables are used in the build:
+ *   $(INCLUDES) $(EXTRA_INCLUDES) $(TOP_INCLUDES) $(STD_INCLUDES)
+ *
+ * INCLUDES should be set in a specific Imakefile for per-client
+ *   or per-library inclues.  We don't set it here.
+ * EXTRA_INCLUDES will be used for the XscHelp header files, and is set
+ *   depending on the UseInstalled variable, to build within the tree
+ *   or outside of the tree.
+ * TOP_INCLUDES will be used for Motif and X header files.  We always use
+ *   the installed headers, regardless of UseInstalled, but we do check
+ *   to see if they are installed somewhere other than /usr/include
+ * STD_INCLUDES is for system-specific headers, set in the .cf file.
+ *   we don't mess with it here.
+ */
+    TOP_INCLUDES = $(XSCHELP_DTINC) $(XSCHELP_XMINC) $(XSCHELP_XTINC)
+
+#ifndef XscHelpBuildTree
+#if defined(XscHelpIncDir)
+    EXTRA_INCLUDES = -I$(XSCHELP_INCDIR)
+#endif
+#else
+    EXTRA_INCLUDES = -I$(TOP)/include
+#endif
+
+/* 
+ * do pretty much the same thing for the library path.  Again, 
+ * we assume that X and Motif are installed 
+ */
+#ifndef XscHelpBuildTree
+        LDOPTIONS = $(CDEBUGFLAGS) $(CCOPTIONS) $(LOCAL_LDFLAGS) -L$(XSCHELP_LIBDIR) $(XSCHELP_DTLIB) $(XSCHELP_XMLIB) $(XSCHELP_XTLIB)
+#else
+        LDOPTIONS = $(CDEBUGFLAGS) $(CCOPTIONS) $(LOCAL_LDFLAGS) -L$(TOP)/src/cde -L$(TOP)/src/base $(XSCHELP_DTLIB) $(XSCHELP_XMLIB) $(XSCHELP_XTLIB)
+#endif
+
+/*
+ * The XscHelpBuildTree variable says that this build is done relative to
+ * the XscHelp tree, not installed XscHelp.  When set, we must propagate this
+ * flag to any subdirs
+ */
+#ifdef XscHelpBuildTree
+      IMAKE_CMD = imake -DUseInstalled -DXscHelpBuildTree -I$(IRULESRC)
+#endif
+
+/*
+ * defines to be passed to the compiler are a lot like include paths:
+ * SYS_DEFINES for the .cf file
+ * DEFINES for the Imakefile itself, but we'll use it here.
+ *
+ * If there are any general defines we need to pass to any XscHelp source
+ * file or client, we'll set them here.
+ */
+    DEFINES = $(DTFLAGS)
+
+
+/*
+ * The following are some things used in the Imakefiles for XscHelp
+ * that were added to the imake system in X11R5.  We define them
+ * here if needed, so that XscHelp will build with X11R4 imake config files.
+ */
+#ifndef XCOMM
+#define XCOMM #
+#endif
