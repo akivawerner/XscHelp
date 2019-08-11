@@ -1,0 +1,505 @@
+!------------------------------------------------------------------------------
+!-  Help ToolKit Demo Resource File
+!-
+!-  Copyright (c) 1997, 1998, 2019 Robert S. Werner (a.k.a. Akiva Werner) 
+!-  ALL RIGHTS RESERVED
+!-  
+!-  License: The MIT License (MIT)
+!------------------------------------------------------------------------------
+
+
+!-----------------------------------------------------------------------
+! The controls on each style sheet are used to adjust the behavior of
+! the tips/hints of the tabs near the top of the window.  The following
+! group of resources define the defaults for the tabs tips.
+!-----------------------------------------------------------------------
+*xscTipFontList:  -adobe-*-medium-r-normal-*-*-120-*-*-p-*-iso8859-1=Normal,\
+      	          -adobe-*-bold-r-normal-*-*-120-*-*-p-*-iso8859-1=Bold,\
+      	          -adobe-*-medium-i-normal-*-*-120-*-*-p-*-iso8859-1=Italic
+
+*switch*xscTipMotifColorModel:    False
+*switch*xscTipAutoDbReload:      False
+
+Demo*xscTipSelectNameInterval: 1000
+
+!Demo*xscTipShowName:  XmXSC_SHOW_NAME_ALL
+Demo*xscTipShowName:  XmXSC_SHOW_NAME_SHELL
+!Demo*xscCueShowName:  XmXSC_SHOW_NAME_ALL
+!Demo*xscHintShowName: XmXSC_SHOW_NAME_SELF
+
+!Demo*arrowButtonWidget.xscCueTopic:   The Arrow Button Widget cue
+!Demo*arrowButtonWidget.xscTipTopic:   The Arrow Button Widget tip
+!Demo*arrowButtonWidget.xscHintTopic:  The Arrow Button Widget hint
+
+_xscHelp.topic.Arrow Button Widget:  This is soooo cool!
+
+Demo*arrowButtonWidget.xscCueTopic:    .third
+Demo*arrowButtonWidget.xscTipTopic:     .Arrow Button Widget
+Demo*arrowButtonWidget.xscHintTopic:  .MySecond 
+
+Demo*arrowButtonGadget.xscCueTopic:   The Arrow Button Gadget cue
+Demo*arrowButtonGadget.xscTipTopic:   The Arrow Button Gadget tip
+Demo*arrowButtonGadget.xscHintTopic:  The Arrow Button Gadget hint
+
+Demo*labelWidget.xscCueTopic:   The Label Widget cue
+Demo*labelWidget.xscTipTopic:   The Label Widget tip
+Demo*labelWidget.xscHintTopic:  The Label Widget hint
+
+Demo*labelGadget.xscCueTopic:   The Label Gadget cue
+Demo*labelGadget.xscTipTopic:   The Label Gadget tip
+Demo*labelGadget.xscHintTopic:  The Label Gadget hint
+
+Demo*pushButtonWidget.xscCueTopic:   The Push Button Widget cue
+Demo*pushButtonWidget.xscTipTopic:   The Push Button Widget tip
+Demo*pushButtonWidget.xscHintTopic:  The Push Button Widget hint
+
+Demo*pushButtonGadget.xscCueTopic:   The Push Button Gadget cue
+Demo*pushButtonGadget.xscTipTopic:   The Push Button Gadget tip
+Demo*pushButtonGadget.xscHintTopic:  The Push Button Gadget hint
+
+Demo*textWidget.xscCueTopic:   The Text Widget cue
+Demo*textWidget.xscTipTopic:   The Text Widget tip
+Demo*textWidget.xscHintTopic:  The Text Widget hint
+
+Demo*textFieldWidget.xscCueTopic:   The TextField Widget cue
+Demo*textFieldWidget.xscTipTopic:   The TextField Widget tip
+Demo*textFieldWidget.xscHintTopic:  The TextField Widget hint
+
+Demo*toggleButtonWidget.xscCueTopic:   The Toggle Button Widget cue
+Demo*toggleButtonWidget.xscTipTopic:   The Toggle Button Widget tip
+Demo*toggleButtonWidget.xscHintTopic:  The Toggle Button Widget hint
+
+Demo*toggleButtonGadget.xscCueTopic:   The Toggle Button Gadget cue
+Demo*toggleButtonGadget.xscTipTopic:   The Toggle Button Gadget tip
+Demo*toggleButtonGadget.xscHintTopic:  The Toggle Button Gadget hint
+
+Demo*XmRowColumn.xscCueTopic: This is a Row Column
+
+Demo*XmToggleButton.xscCueTopic: This is a Toggle Button
+Demo*XmScale.xscCueTopic: This is a Scale
+!Demo*XmScale*xscCueTopic: This is a Scale child
+!Demo*xscCueTopic: This is a CUE topic
+!Demo*xscCuePosition: XmXSC_CUE_POSITION_TOP_BEGINNING
+Demo*xscCueBackground: gold
+Demo*xscCueForeground: black
+Demo*xscCueMotifColorModel: False
+!Demo*xscCueStringDirection: XmSTRING_DIRECTION_R_TO_L
+
+!--------------------------------------------
+! These are the cues associated with each tab
+!--------------------------------------------
+Demo*switch*colorBtn.xscCueTopic:    Display the color control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*edgesBtn.xscCueTopic:    Display the edges control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*flagsBtn.xscCueTopic:    Display the flags control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*fontBtn.xscCueTopic:     Display the font control sheet\nThis line has @f[Bold]bold@f[Normal] and @f[Italic]italic@f[] text\nEven text direction can be reversed : @d<Even text direction can be reversed@d>\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*offsetBtn.xscCueTopic:   Display the offset control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*styleBtn.xscCueTopic:    Display the style control sheet\n(Use the controls below to adjust this tip)
+Demo*switch*timerBtn.xscCueTopic:    Display the timer control sheet\n(Use the controls below to adjust this tip)
+
+!--------------------------------------------
+! These are the tips associated with each tab
+!--------------------------------------------
+Demo*switch*colorBtn.xscTipTopic:    Display the color control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*edgesBtn.xscTipTopic:    Display the edges control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*flagsBtn.xscTipTopic:    Display the flags control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*fontBtn.xscTipTopic:     Display the font control sheet\nThis line has @f[Bold]bold@f[Normal] and @f[Italic]italic@f[] text\nEven text direction can be reversed : @d<Even text direction can be reversed@d>\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*offsetBtn.xscTipTopic:   Display the offset control sheet\n(Use the controls below to adjust this tip)\nPlace focus here are press F1 (Help) to activate the help callback
+Demo*switch*styleBtn.xscTipTopic:    Display the style control sheet\n(Use the controls below to adjust this tip)
+Demo*switch*timerBtn.xscTipTopic:    Display the timer control sheet\n(Use the controls below to adjust this tip)
+!------------------------------------------------------------------
+! This is used for the MicroLine manager instead of the block above
+!------------------------------------------------------------------
+Demo*switch*XmDrawnButton.xscTipTopic:    Display the associated tab sheet\n(Use the controls below to adjust this tip)
+
+!------------------------------------------------------------------------
+! The following group of resources define the defaults for the tabs hints
+!------------------------------------------------------------------------
+*xscHintFontList: -adobe-*-medium-r-normal-*-*-120-*-*-p-*-iso8859-1=Normal,\
+      	          -adobe-*-bold-r-normal-*-*-120-*-*-p-*-iso8859-1=Bold,\
+      	          -adobe-*-medium-i-normal-*-*-120-*-*-p-*-iso8859-1=Italic
+
+*switch*xscHintAutoDbReload: 	       False
+*switch*xscHintInheritBackground:   False
+
+!---------------------------------------------
+! These are the hints associated with each tab
+!---------------------------------------------
+Demo*switch*colorBtn.xscHintTopic:    Display the color control sheet\n(Use these controls to adjust this hint)
+Demo*switch*edgesBtn.xscHintTopic:    Display the edges control sheet\n(Use these controls to adjust this hint)
+Demo*switch*flagsBtn.xscHintTopic:    Display the flags control sheet\n(Use these controls to adjust this hint)
+Demo*switch*fontBtn.xscHintTopic:     Display the @f[Bold]font@f[Normal] control sheet\n(Use these controls to adjust this hint)
+Demo*switch*offsetBtn.xscHintTopic:   Display the offset control sheet\n(Use these controls to adjust this hint)
+Demo*switch*styleBtn.xscHintTopic:    Display the style control sheet\n(Use these controls to adjust this hint)
+Demo*switch*timerBtn.xscHintTopic:    Display the timer control sheet\n(Use these controls to adjust this hint)
+!------------------------------------------------------------------
+! This is used for the MicroLine manager instead of the block above
+!------------------------------------------------------------------
+Demo*switch*XmDrawnButton.xscHintTopic:    Display the associated tab sheet\n(Use these controls to adjust this hint)
+
+
+!----------------------------------------------------------------
+! These are for the CDE demo -- the USE_CDE macro must be defined
+! for the CDE functions to be tested; otherwise, a simple subset
+! of these attributes are printed to stdout.
+!----------------------------------------------------------------
+Demo*switch*colorBtn.xscCdeHelpTopic:        	Demo Program
+Demo*switch*colorBtn.xscCdeHelpType:     	HELP_TYPE_TOPIC
+
+Demo*switch*edgesBtn.xscCdeHelpTopic:     \
+This is a string; as a result, the new lines are all \n\
+hand-entered.  There is no word wrap capability.\n\
+It's length just shows how the newlines work \n\n\
+This is the last line....
+Demo*switch*edgesBtn.xscCdeHelpType:     	HELP_TYPE_STRING
+Demo*switch*edgesBtn.xscCdeHelpTopicTitle:   	This is a string
+
+Demo*switch*flagsBtn.xscCdeHelpTopic:     \
+This is a dynamic string; as a result, it \
+is very, very, very long.  It's length \
+shows how the "dynamic" word wrapping \
+works.\n\nThis is the last line....
+Demo*switch*flagsBtn.xscCdeHelpType:     	HELP_TYPE_DYNAMIC_STRING
+Demo*switch*flagsBtn.xscCdeHelpTopicTitle:   	This is a dynamic string
+
+Demo*switch*fontBtn.xscCdeHelpTopic:         	Demo
+Demo*switch*fontBtn.xscCdeHelpType:      	HELP_TYPE_FILE
+
+Demo*switch*offsetBtn.xscCdeHelpTopic:       	man
+Demo*switch*offsetBtn.xscCdeHelpType:    	HELP_TYPE_MAN_PAGE
+Demo*switch*offsetBtn.xscCdeHelpWidgetType:     XSC_CDE_QUICK_HELP_WIDGET
+
+
+Demo*black.foreground: Black
+Demo*yellow.foreground: Yellow
+Demo*blue.foreground: Blue
+Demo*cyan.foreground: Cyan
+Demo*red.foreground: Red
+Demo*white.foreground: White
+
+
+!!----------------------------------------
+!! Tip and hint background color selection
+!!----------------------------------------
+Demo*theShadowColorBase.xscTipTopic:         The Shadow (Base) Color
+Demo*theShadowColorBase.xscTipCompound:      True
+Demo*theShadowColorBase.xscTipGroupId:       XmXSC_TIP_GROUP_PARENT
+!Demo*theShadowColorBase.xscTipGroupOverride: XSC_TIP_GROUP_PARENT
+
+!Demo*workArea.xscTipGroupId: XSC_TIP_GROUP_SELF
+Demo*xscTipGroupId: XSC_tip_GROUP_PARENT
+! -1 is self
+! -2 is parent
+Demo*theBackground.xscTipGroupId:    -1
+Demo*theForeground.xscTipGroupId:    -1
+Demo*theBorderColor.xscTipGroupId:   -1
+
+Demo*theBackground*xscHintInheritBackground:      False
+
+
+Demo*theBackground*black.xscTipTopic:        Use a \"Black\" background (HT)
+Demo*theBackground*black.xscHintTopic:       Give tab hints and tips a \"Black\" background (HT)
+Demo*theBackground*black.xscTipBackground:   Black
+Demo*theBackground*black.xscHintBackground:  Black
+
+Demo*theBackground*yellow.xscTipTopic:       Use a \"Yellow\" background (HT)
+Demo*theBackground*yellow.xscHintTopic:      Give tab hints and tips a \"Yellow\" background (HT)
+Demo*theBackground*yellow.xscTipBackground:  Yellow
+Demo*theBackground*yellow.xscHintBackground: Yellow
+
+Demo*theBackground*blue.xscTipTopic:         Use a \"Blue\" background (HT)
+Demo*theBackground*blue.xscHintTopic:        Give tab hints and tips a \"Blue\" background (HT)
+Demo*theBackground*blue.xscTipBackground:    Blue
+Demo*theBackground*blue.xscHintBackground:   Blue
+
+Demo*theBackground*cyan.xscTipTopic:         Use a \"Cyan\" background (HT)
+Demo*theBackground*cyan.xscHintTopic:        Give tab hints and tips a \"Cyan\" background (HT)
+Demo*theBackground*cyan.xscTipBackground:    Cyan
+Demo*theBackground*cyan.xscHintBackground:   Cyan
+
+Demo*theBackground*red.xscTipTopic:          Use a \"Red\" background (HT)
+Demo*theBackground*red.xscHintTopic:         Give tab hints and tips a \"Red\" background (HT)
+Demo*theBackground*red.xscTipBackground:     Red
+Demo*theBackground*red.xscHintBackground:    Red
+
+Demo*theBackground*white.xscTipTopic:        Use a \"White\" background (HT)
+Demo*theBackground*white.xscHintTopic:       Give tab hints and tips a \"White\" background (HT)
+Demo*theBackground*white.xscTipBackground:   White
+Demo*theBackground*white.xscHintBackground:  White
+
+!!----------------------------------------
+!! Tip and hint foreground color selection
+!!----------------------------------------
+Demo*theForeground*?.xscTipMotifColorModel:  False
+Demo*theForeground*?.xscHintMotifColorModel: False
+
+Demo*theForeground*black.xscTipTopic:        Use a \"Black\" foreground (HT)
+Demo*theForeground*black.xscHintTopic:       Give tab hints and tips a \"Black\" foreground (HT)
+Demo*theForeground*black.xscTipForeground:   Black
+Demo*theForeground*black.xscHintForeground:  Black
+
+Demo*theForeground*yellow.xscTipTopic:       Use a \"Yellow\" foreground (HT)
+Demo*theForeground*yellow.xscHintTopic:      Give tab hints and tips a \"Yellow\" foreground (HT)
+Demo*theForeground*yellow.xscTipForeground:  Yellow
+Demo*theForeground*yellow.xscHintForeground: Yellow
+
+Demo*theForeground*blue.xscTipTopic:         Use a \"Blue\" foreground (HT)
+Demo*theForeground*blue.xscHintTopic:        Give tab hints and tips a \"Blue\" foreground (HT)
+Demo*theForeground*blue.xscTipForeground:    Blue
+Demo*theForeground*blue.xscHintForeground:   Blue
+
+Demo*theForeground*cyan.xscTipTopic:         Use a \"Cyan\" foreground (HT)
+Demo*theForeground*cyan.xscHintTopic:        Give tab hints and tips a \"Cyan\" foreground (HT)
+Demo*theForeground*cyan.xscTipForeground:    Cyan
+Demo*theForeground*cyan.xscHintForeground:   Cyan
+
+Demo*theForeground*red.xscTipTopic:          Use a \"Red\" foreground (HT)
+Demo*theForeground*red.xscHintTopic:         Give tab hints and tips a \"Red\" foreground (HT)
+Demo*theForeground*red.xscTipForeground:     Red
+Demo*theForeground*red.xscHintForeground:    Red
+
+Demo*theForeground*white.xscTipTopic:        Use a \"White\" foreground (HT)
+Demo*theForeground*white.xscHintTopic:       Give tab hints and tips a \"White\" foreground (HT)
+Demo*theForeground*white.xscTipForeground:   White
+Demo*theForeground*white.xscHintForeground:  White
+
+!!---------------------------
+!! Tip border color selection
+!!---------------------------
+Demo*theBorderColor*black.xscTipTopic:       Use a \"Black\" border color (T)
+Demo*theBorderColor*black.xscHintTopic:      Give tab tips a \"Black\" border color (T)\nThis attribute does not work for hints
+Demo*theBorderColor*black.xscTipBorderColor: Black
+
+Demo*theBorderColor*yellow.xscTipTopic:      Use a \"Yellow\" border color (T)
+Demo*theBorderColor*yellow.xscHintTopic:     Give tab tips a \"Yellow\" border color (T)\nThis attribute does not work for hints
+Demo*theBorderColor*yellow.xscTipBorderColor:Yellow
+
+Demo*theBorderColor*blue.xscTipTopic:        Use a \"Blue\" border color (T)
+Demo*theBorderColor*blue.xscHintTopic:       Give tab tips a \"Blue\" border color (T)\nThis attribute does not work for hints
+Demo*theBorderColor*blue.xscTipBorderColor:  Blue
+
+Demo*theBorderColor*cyan.xscTipTopic:        Use a \"Cyan\" border color (T)
+Demo*theBorderColor*cyan.xscHintTopic:       Give tab tips a \"Cyan\" border color (T)\nThis attribute does not work for hints
+Demo*theBorderColor*cyan.xscTipBorderColor:  Cyan
+
+Demo*theBorderColor*red.xscTipTopic:         Use a \"Red\" border color (T)
+Demo*theBorderColor*red.xscHintTopic:        Give tab tips a \"Red\" border color (T)\nThis attribute does not work for hints
+Demo*theBorderColor*red.xscTipBorderColor:   Red
+
+Demo*theBorderColor*white.xscTipTopic:       Use a \"White\" border color (T)
+Demo*theBorderColor*white.xscHintTopic:      Give tab tips a \"White\" border color (T)\nThis attribute does not work for hints
+Demo*theBorderColor*white.xscTipBorderColor: White
+
+!!---------------------------
+!! Tip shadow color selection
+!!---------------------------
+Demo*theShadowColorBase*black.xscTipTopic:   	      Use a \"Black\" shadow color (T)
+Demo*theShadowColorBase*black.xscHintTopic:   	      Give tab tips a \"Black\" shadow color (T)\nThis attribute does not work for hints
+Demo*theShadowColorBase*black.xscTipColorBase:  Black
+
+Demo*theShadowColorBase*yellow.xscTipTopic:  	      Use a \"Yellow\" shadow color (T)
+Demo*theShadowColorBase*yellow.xscHintTopic:   	      Give tab tips a \"Yellow\" shadow color (T)\nThis attribute does not work for hints
+Demo*theShadowColorBase*yellow.xscTipColorBase: Yellow
+
+Demo*theShadowColorBase*blue.xscTipTopic:    	      Use a \"Blue\" shadow color (T)
+Demo*theShadowColorBase*blue.xscHintTopic:   	      Give tab tips a \"Blue\" shadow color (T)\nThis attribute does not work for hints
+Demo*theShadowColorBase*blue.xscTipColorBase:   Blue
+
+Demo*theShadowColorBase*cyan.xscTipTopic:    	      Use a \"Cyan\" shadow color (T)
+Demo*theShadowColorBase*cyan.xscHintTopic:   	      Give tab tips a \"Cyan\" shadow color (T)\nThis attribute does not work for hints
+Demo*theShadowColorBase*cyan.xscTipColorBase:   Cyan
+
+Demo*theShadowColorBase*red.xscTipTopic:     	      Use a \"Red\" shadow color (T)
+Demo*theShadowColorBase*red.xscHintTopic:   	      Give tab tips a \"Red\" shadow color (T)\nThis attribute does not work for hints
+Demo*theShadowColorBase*red.xscTipColorBase:    Red
+
+Demo*theShadowColorBase*white.xscTipTopic:   	      Use a \"White\" shadow color (T)
+Demo*theShadowColorBase*white.xscHintTopic:   	      Give tab tips a \"White\" shadow color (T)\nThis attribute does not work for hints
+Demo*theShadowColorBase*white.xscTipColorBase:  White
+
+
+!!-------------------
+!! Tip edge selection
+!!-------------------
+Demo*XmScale.?.xscGadgetProcessing:       False
+Demo*XmScale.xscTipCompound:       True
+Demo*XmScale.xscHintCompound:       True
+Demo*theBorderWidth*xscTipTopic:       Adjust the border width (T)
+Demo*theBorderWidth*xscHintTopic:      Adjust the border width of the tab tips (T)\nThis attribute does not work for hints
+Demo*theShadowThickness*xscTipTopic:   Adjust the shadow thickness (T)
+Demo*theShadowThickness*xscHintTopic:  Adjust the shadow thickness of the tab tips (T)\nThis attribute does not work for hints
+
+!!---------------------
+!! Margin specification
+!!---------------------
+Demo*theMarginWidth*xscTipTopic:    Adjust the margin width (HT)
+Demo*theMarginWidth*xscHintTopic:   Adjust the margin width of the tab hints and tips (HT)
+Demo*theMarginHeight*xscTipTopic:   Adjust the margin height (T)
+Demo*theMarginHeight*xscHintTopic:  Adjust the margin height of the tab tips (T)\nThis attribute does not work for hints
+Demo*theMarginLeft*xscTipTopic:     Adjust the left margin (HT)
+Demo*theMarginLeft*xscHintTopic:    Adjust the left margin of the tab hints and tips (HT)
+Demo*theMarginRight*xscTipTopic:    Adjust the right margin (HT)
+Demo*theMarginRight*xscHintTopic:   Adjust the right margin of the tab hints and tips (HT)
+Demo*theMarginTop*xscTipTopic:	    Adjust the top margin (T)
+Demo*theMarginTop*xscHintTopic:     Adjust the top margin of the tab tips (T)\nThis attribute does not work for hints
+Demo*theMarginBottom*xscTipTopic:   Adjust the bottom margin (T)
+Demo*theMarginBottom*xscHintTopic:  Adjust the bottom margin of the tab tips (T)\nThis attribute does not work for hints
+
+
+!!------------------------------
+!! Tip and hint manage selection
+!!------------------------------
+Demo*theManage*true.xscTipTopic:    Allow the display of tab hints and tips (HT)
+Demo*theManage*true.xscHintTopic:   Allow the display of tab hints and tips (HT)
+Demo*theManage*false.xscTipTopic:   Prevent the display of tab hints and tips (HT)
+Demo*theManage*false.xscHintTopic:  Prevent the display of tab hints and tips (HT)
+
+
+!!-----------------------------------------
+!! Tip and hint motif color model selection
+!!-----------------------------------------
+Demo*theColorModel*true.xscTipTopic:   Enforce the Motif color model (HT)
+Demo*theColorModel*true.xscHintTopic:  Enforce the Motif color model for the tab hints and tips (HT)\nForeground and shadow colors are derived from the background
+Demo*theColorModel*false.xscTipTopic:  Do not enforce the Motif color model (HT)
+Demo*theColorModel*false.xscHintTopic: Do not enforce the Motif color model for the tab hints and tips (HT)\nForeground and shadow base color attributes are used
+
+
+!!----------------------------
+!! Hint background from parent
+!!----------------------------
+Demo*theBackgroundFromParent*true.xscTipTopic:   Inherit background color from hint parent (H)
+Demo*theBackgroundFromParent*true.xscHintTopic:  Inherit background color from hint parent (H)\nIf true, the background attribute is ignored
+Demo*theBackgroundFromParent*false.xscTipTopic:  Do not inherit background color from hint parent (H)
+Demo*theBackgroundFromParent*false.xscHintTopic: Do not inherit background color from hint parent (H)\nUse background attribute instead
+
+
+!!-------------------------------------
+!! Tip and hint font list tag selection
+!!-------------------------------------
+Demo*theTag*XmToggleButton.xscTipStringConverter:  XmXSC_STRING_CONVERTER_FONT_TAG
+Demo*theTag*XmToggleButton.xscHintStringConverter: XmXSC_STRING_CONVERTER_SEGMENTED
+
+Demo*theTag*normal.xscTipTopic:        Use a regular font (HT)
+Demo*theTag*normal.xscHintTopic:       Use a regular font for the tab hints and tips (HT)@f[]\nThis is used @f[Italic]only@f[] if the string converter equals @f[Bold]XmXSC_STRING_CONVERTER_FONT_TAG@f[]
+Demo*theTag*normal.xscTipFontListTag:  Normal
+
+Demo*theTag*!bold.xscTipTopic: 	       Use a bold font
+!Demo*theTag*bold.xscHintTopic: 	       @f[Bold]Use a bold font for the tab hints and tips (HT)@f[]\nThis is used @f[Italic]only@f[] if the string converter equals @f[Bold]XmXSC_STRING_CONVERTER_FONT_TAG@f[]
+Demo*theTag*bold.xscTipFontListTag:    Bold
+
+Demo*theTag*italic.xscTipTopic:        Use an italic font (HT)
+Demo*theTag*italic.xscHintTopic:       @f[Italic]Use an italic font for the tab hints and tips (HT)@f[]\nThis is used @f[Italic]only@f[] if the string converter equals @f[Bold]XmXSC_STRING_CONVERTER_FONT_TAG@f[]
+Demo*theTag*italic.xscTipFontListTag:  Italic
+
+
+!!----------------------------------------
+!! Tip and hint string converter selection
+!!----------------------------------------
+Demo*theStrCvt*standad.xscTipTopic:    Use the standard Motif string to compound string converter (HT)\nFont list tags and escape sequences are not used!
+Demo*theStrCvt*standad.xscHintTopic:   Use the standard Motif string to compound string converter for the tab hints and tips (HT)\nFont list tags and escape sequences are not used!
+Demo*theStrCvt*fontTag.xscTipTopic:          Use a simple converter that accepts the font list tag resource (HT)\nIn this case, \"Bold\" is assumed
+Demo*theStrCvt*fontTag.xscHintTopic:         Use a simple converter that accepts the font list tag resource (HT)\nIn this case, \"Italic\" is assumed
+Demo*theStrCvt*fontTag.xscTipFontListTag:    Bold
+Demo*theStrCvt*fontTag.xscHintFontListTag:   Italic
+Demo*theStrCvt*fontTag.xscTipStringConverter:    XmXSC_STRING_CONVERTER_FONT_TAG
+Demo*theStrCvt*fontTag.xscHintStringConverter:    XmXSC_STRING_CONVERTER_FONT_TAG
+Demo*theStrCvt*segmented.xscTipTopic:        Complete, @f[Italic]multi-@f[Bold]font@f[], multi-direction,\nand multi-line compound strings (HT)
+Demo*theStrCvt*segmented.xscHintTopic:       Complete, @f[Bold]multi-@f[Italic]font@f[], multi-direction,\nand multi-line compound strings (HT)
+Demo*theStrCvt*segmented.xscTipStringConverter:  XmXSC_STRING_CONVERTER_SEGMENTED
+Demo*theStrCvt*segmented.xscHintStringConverter:  XmXSC_STRING_CONVERTER_SEGMENTED
+
+!!----------------------------------------
+!! Tip and hint string direction selection
+!!----------------------------------------
+Demo*theStrDir*lToR.xscTipTopic:    By default, render text from left to right,\nas shown in hint at the bottom of the window (HT)
+Demo*theStrDir*lToR.xscHintTopic:   Tab tips should be rendered from left to right (HT)
+Demo*theStrDir*rToL.xscTipTopic:    By default, render text from right to left,\nas shown in hint at the bottom of the window (HT)
+Demo*theStrDir*rToL.xscHintTopic:   Tab tips should be rendered from left to right (HT)
+Demo*theStrDir*lToR.xscHintStringDirection:  XmSTRING_DIRECTION_L_TO_R
+Demo*theStrDir*rToL.xscHintStringDirection:  XmSTRING_DIRECTION_R_TO_L
+
+!!---------------------
+!! Tip offset selection
+!!---------------------
+Demo*theXOffset*xscTipTopic:  Specify the tip's X offset from the pointer\nOnly used when tip popup position equals XmXSC_TIP_POSITION_POINTER (T)
+Demo*theXOffset*xscHintTopic: Specify the tab tip's X offset from the pointer (T)
+Demo*theYOffset*xscTipTopic:  Specify the tip's Y offset from the pointer\nOnly used when tip popup position equals XmXSC_TIP_POSITION_POINTER (T)
+Demo*theYOffset*xscHintTopic: Specify the tab tip's Y offset from the pointer (T)\nThis value cannot equal 0 (or it is automatically changed)
+
+
+!!--------------------------
+!! Tip shadow type selection
+!!--------------------------
+Demo*theShadowType*XmToggleButton.xscTipShadowThickness: 2
+
+Demo*theShadowType*shadowIn.xscTipTopic:     	      Shadow type of XmSHADOW_IN (T)
+Demo*theShadowType*shadowIn.xscHintTopic:     	      Make the shadow type of the tab tips to XmSHADOW_IN (T)
+Demo*theShadowType*shadowIn.xscTipShadowType:	      XmSHADOW_IN
+
+Demo*theShadowType*shadowOut.xscTipTopic:    	      Shadow type of XmSHADOW_OUT (T)
+Demo*theShadowType*shadowOut.xscHintTopic:     	      Make the shadow type of the tab tips to XmSHADOW_OUT (T)
+Demo*theShadowType*shadowOut.xscTipShadowType:	      XmSHADOW_OUT
+
+Demo*theShadowType*shadowEtchedIn.xscTipTopic:	      Shadow type of XmSHADOW_ETCHED_IN (T)
+Demo*theShadowType*shadowEtchedIn.xscHintTopic:       Make the shadow type of the tab tips to XmSHADOW_ETCHED_IN (T)
+Demo*theShadowType*shadowEtchedIn.xscTipShadowType:   XmSHADOW_ETCHED_IN
+
+Demo*theShadowType*shadowEtchedOut.xscTipTopic:       Shadow type of XmSHADOW_ETCHED_OUT (T)
+Demo*theShadowType*shadowEtchedOut.xscHintTopic:      Make the shadow type of the tab tips to XmSHADOW_ETCHED_OUT (T)
+Demo*theShadowType*shadowEtchedOut.xscTipShadowType:  XmSHADOW_ETCHED_OUT
+
+
+!!-----------------------------
+!! Tip popup position selection
+!!-----------------------------
+Demo*thePosition*posPointer.xscTipTopic:     	   The tip appear at an offset relative to the pointer (T)
+Demo*thePosition*posPointer.xscHintTopic:     	   Make the popup position for the tab tips XmXSC_TIP_POSITION_POINTER (T)
+Demo*thePosition*posPointer.xscTipPosition:	   XmXSC_TIP_POSITION_POINTER
+
+Demo*thePosition*posTopLeft.xscTipTopic:     	   The tip appears above and flush-left (T)
+Demo*thePosition*posTopLeft.xscHintTopic:     	   Make the popup position for the tab tips XmXSC_TIP_POSITION_TOP_LEFT (T)
+Demo*thePosition*posTopLeft.xscTipPosition:	   XmXSC_TIP_POSITION_TOP_LEFT
+
+Demo*thePosition*posTopRight.xscTipTopic:    	   The tip appears above and flush-right (T)
+Demo*thePosition*posTopRight.xscHintTopic:    	   Make the popup position for the tab tips XmXSC_TIP_POSITION_TOP_RIGHT (T)
+Demo*thePosition*posTopRight.xscTipPosition:    XmXSC_TIP_POSITION_TOP_RIGHT
+
+Demo*thePosition*posBottomLeft.xscTipTopic:  	   The tip appears below and flush-left (T)
+Demo*thePosition*posBottomLeft.xscHintTopic:  	   Make the popup position for the tab tips XmXSC_TIP_POSITION_BOTTOM_LEFT (T)
+Demo*thePosition*posBottomLeft.xscTipPosition:  XmXSC_TIP_POSITION_BOTTOM_LEFT
+
+Demo*thePosition*posBottomRight.xscTipTopic: 	   The tip appears below and flush-right (T)
+Demo*thePosition*posBottomRight.xscHintTopic: 	   Make the popup position for the tab tips XmXSC_TIP_POSITION_BOTTOM_RIGHT (T)
+Demo*thePosition*posBottomRight.xscTipPosition: XmXSC_TIP_POSITION_BOTTOM_RIGHT
+
+
+!!-----------------------
+!! Tip and hint alignment
+!!-----------------------
+Demo*theAlignment*alignBegin.xscTipTopic:    	All lines aligned at the beginning margin (HT)\nFlush-left for left to right rendered text\nFlush-right for right to left rendered text
+Demo*theAlignment*alignBegin.xscHintTopic:    	Aligned at the beginning margin (HT)\nLeft side for L to R text and right side for R to L text
+Demo*theAlignment*alignBegin.xscTipAlignment:	XmALIGNMENT_BEGINNING
+Demo*theAlignment*alignBegin.xscHintAlignment:	XmALIGNMENT_BEGINNING
+
+Demo*theAlignment*alignCenter.xscTipTopic:   	All lines centered between the left and right margin (HT)\nThis is the same for both L to R and R to L rendered text
+Demo*theAlignment*alignCenter.xscHintTopic:    	Centered between the left and right margin (HT)\nThis is the same for both L to R and R to L rendered text
+Demo*theAlignment*alignCenter.xscTipAlignment:	XmALIGNMENT_CENTER
+Demo*theAlignment*alignCenter.xscHintAlignment:	XmALIGNMENT_CENTER
+
+Demo*theAlignment*alignEnd.xscTipTopic:      	All lines aligned at the end margin (HT)\nFlush-right for left to right rendered text\nFlush-left for right to left rendered text
+Demo*theAlignment*alignEnd.xscHintTopic:    	Aligned at the end margin (HT)\nRight side for L to R text and left side for R to L text
+Demo*theAlignment*alignEnd.xscTipAlignment:  	XmALIGNMENT_END
+Demo*theAlignment*alignEnd.xscHintAlignment:  	XmALIGNMENT_END
+
+
+!!-----------
+!! Tip timers
+!!-----------
+Demo*thePopupInterval*xscTipTopic:     Number of milliseconds for initial pop-up (T)
+Demo*thePopupInterval*xscHintTopic:    Adjust the number of milliseconds for the tab tips to\ninitially pop-up (T)
+Demo*thePopdownInterval*xscTipTopic:   Number of milliseconds for a popped-up tip to automatically popdown (T)\nA value of zero indicates that the tip should not be automatically popped-down
+Demo*thePopdownInterval*xscHintTopic:  Adjust the number of milliseconds for the popped-up\ntab tips to popdown (T)
+Demo*theFastMapInterval*xscTipTopic:   Number of milliseconds that "fast map" is in affect (T)\nOnce a tip is popped-down, the interval that a new tip can be immediately popped-up
+Demo*theFastMapInterval*xscHintTopic:  Adjust the number of milliseconds that "fast map" is in affect (T)\nThis is only used if the popdown interval is set to zero
+
+
+Demo*xscTipPopupInterval: 6000

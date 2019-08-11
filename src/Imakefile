@@ -1,0 +1,23 @@
+/*---------------------------------------------------------------------------*/
+/* Based on the top Imakefile for the Xmt library, written by David Flanagan */
+/* Used with permission                                                      */
+/*---------------------------------------------------------------------------*/
+/* 
+ * Set XscHelp-specific variables.
+ * This must come first
+ */
+#include "../XscHelp.tmpl"
+
+#define IHaveSubdirs
+#define PassCDebugFlags
+
+
+#if XscHelpUseCDE
+        SUBDIRS = base cde
+#else
+        SUBDIRS = base
+#endif
+
+MakeSubdirs($(SUBDIRS))
+
+DependSubdirs($(SUBDIRS))

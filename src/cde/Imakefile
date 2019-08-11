@@ -1,0 +1,133 @@
+/*---------------------------------------------------------------------------*/
+/* Based on the Xmt source level Imakefile for the Xmt library, written by   */
+/* David Flanagan.  Used with permission                                     */
+/*---------------------------------------------------------------------------*/
+/* 
+ * Set XscHelp-specific variables.
+ * This must come first
+ */
+#include "../../XscHelp.tmpl"
+
+/* 
+ * rules for normal, shared, debugged and profiled libraries.
+ */
+#if ProjectX >= 5
+#include <Library.tmpl>
+#else
+         CC = LibraryCcCmd
+  CCOPTIONS = LibraryCCOptions
+STD_DEFINES = LibraryDefines
+CDEBUGFLAGS = LibraryCDebugFlags
+#endif
+
+
+SRCS =  CdeHelp.c
+OBJS =	CdeHelp.o
+HEADERS = CdeHelp.h
+INSTALL_H = ../../include/Xsc/CdeHelp.h
+
+
+/*
+ * R4 and R5 have very different ways of building libraries.
+ * We include both methods here, so this Imakefile should work
+ * on systems with both X11R4 and X11R5 imake config files.
+ */
+#if ProjectX >= 5
+/*
+ * general rules for building normal, shared, debugged, and profiled 
+ * object files for the library.  Defined in Library.tmpl
+ */
+LibraryObjectRule()
+
+/* 
+ * rules for building the library 
+ */
+#if DoSharedLib
+#if DoNormalLib
+SharedLibraryTarget(XscCdeHelp,XscHelpSharedLibraryRevision,$(OBJS),shared,..)
+#else
+SharedLibraryTarget(XscCdeHelp,XscHelpSharedLibraryRevision,$(OBJS),.,.)
+#endif
+SharedLibraryDataTarget(XscCdeHelp,XscHelpSharedLibraryRevision,$(UNSHAREDOBJS))
+#endif
+#if DoNormalLib
+NormalLibraryTarget(XscCdeHelp,$(OBJS))
+#endif
+#if DoProfileLib
+ProfiledLibraryTarget(XscCdeHelp,$(OBJS))
+#endif
+#if DoDebugLib
+DebuggedLibraryTarget(XscCdeHelp,$(OBJS))
+#endif
+
+/* 
+ * rules for installing the library
+ */
+#if DoSharedLib
+InstallSharedLibrary(XscCdeHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+InstallSharedLibraryData(XscCdeHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+#endif
+#if DoNormalLib
+InstallLibrary(XscCdeHelp,$(XSCHELP_LIBDIR))
+#endif
+#if DoProfileLib
+InstallLibrary(XscCdeHelp_p,$(XSCHELP_LIBDIR))
+#endif
+#if DoDebugLib
+InstallLibrary(XscCdeHelp_d,$(XSCHELP_LIBDIR))
+#endif
+
+#else  /* if X11R4 config files */
+#if DoSharedLib 
+# if DoDebugLib
+SharedAndDebuggedLibraryObjectRule()
+# else
+SharedLibraryObjectRule()
+# endif
+#else
+# if DoDebugLib && DoProfileLib
+DebuggedAndProfiledLibraryObjectRule()
+# else
+#  if DoDebugLib
+DebuggedLibraryObjectRule()
+#  else
+#   if DoProfileLib
+ProfiledLibraryObjectRule()
+#   else
+NormalLibraryObjectRule()
+#   endif
+#  endif
+# endif
+#endif
+
+/*
+ * always generate unshared library too 
+ */
+#if DoSharedLib
+NormalSharedLibraryTarget(XscCdeHelp,XscHelpSharedLibraryRevision,$(OBJS))
+NormalSharedLibraryDataTarget(XscCdeHelp,XscHelpSharedLibraryRevision,$(UNSHAREDOBJS))
+InstallSharedLibrary(XscCdeHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+InstallSharedLibraryData(XscCdeHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+#endif
+NormalLibraryTarget(XscCdeHelp,$(OBJS))
+InstallLibrary(XscCdeHelp,$(XSCHELP_LIBDIR))
+
+LintLibraryTarget(XscCdeHelp,$(SRCS))
+InstallLintLibrary(XscCdeHelp,$(LINTLIBDIR))
+
+#if DoProfileLib
+ProfiledLibraryTarget(XscCdeHelp,$(OBJS))
+InstallLibrary(XscCdeHelp_p,$(XSCHELP_LIBDIR))
+#endif
+
+#if DoDebugLib
+DebuggedLibraryTarget(XscCdeHelp,$(OBJS))
+#endif
+#endif  /* R5 or R4 */
+
+/* rule to install the header files */
+InstallMultiple($(INSTALL_H),$(XSCHELP_INCDIR)/Xsc)
+
+/* rule for make depend: depends all in $SRCS using $ALLDEFINES */
+DependTarget()
+

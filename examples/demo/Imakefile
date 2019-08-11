@@ -1,0 +1,39 @@
+#ifndef XscHelpBuildTree
+#define XscHelpBuildTree       /* from this Imakefile, always build the tree */
+#endif
+
+/*---------------------------------
+-- Set XscHelp-specific variables.
+-- This must come first
+---------------------------------*/
+#include "../../XscHelp.tmpl"
+
+/*---------------------------------------------------------------
+-- This next block assumes that the Help ToolKit static library 
+-- exists and is called XscHelp.a
+---------------------------------------------------------------*/
+#ifndef XscHelpBuildTree
+#if XscHelpUseCDE
+   DEPLIBS = $(XSCHELP_LIBDIR)/libXscHelp.a $(XSCHELP_LIBDIR)/libXscCdeHelp.a
+#else
+   DEPLIBS = $(XSCHELP_LIBDIR)/libXscHelp.a
+#endif
+#else
+#if XscHelpUseCDE
+   DEPLIBS = $(TOP)/src/base/libXscHelp.a $(TOP)/src/cde/libXscCdeHelp.a
+#else
+   DEPLIBS = $(TOP)/src/base/libXscHelp.a
+#endif
+#endif
+
+
+LOCAL_LIBRARIES = $(LDOPTIONS) XscHelpLibs -lXmu
+  SYS_LIBRARIES = $(XSCHELP_EXTRALIBS)
+
+           SRCS = demo.c
+           OBJS = demo.o
+       INCLUDES = $(EXTRA_INCLUDES) $(TOP_INCLUDES) $(STD_INCLUDES)
+
+ComplexProgramTarget(demo)
+
+depend:: $(SRCS)

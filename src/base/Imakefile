@@ -1,0 +1,179 @@
+/*---------------------------------------------------------------------------*/
+/* Based on the Xmt source level Imakefile for the Xmt library, written by   */
+/* David Flanagan.  Used with permission                                     */
+/*---------------------------------------------------------------------------*/
+/* 
+ * Set XscHelp-specific variables.
+ * This must come first
+ */
+#include "../../XscHelp.tmpl"
+
+/* 
+ * rules for normal, shared, debugged and profiled libraries.
+ */
+#if ProjectX >= 5
+#include <Library.tmpl>
+#else
+         CC = LibraryCcCmd
+  CCOPTIONS = LibraryCCOptions
+STD_DEFINES = LibraryDefines
+CDEBUGFLAGS = LibraryCDebugFlags
+#endif
+
+SRCS =  \
+      	 Context.c \
+      	 Cue.c \
+      	 Display.c \
+      	 Help.c   \
+      	 Hint.c \
+      	 Hooks.c \
+      	 Object.c \
+      	 Screen.c \
+      	 Shell.c \
+      	 Text.c \
+      	 Tip.c
+
+OBJS =	\
+        Context.o \
+        Cue.o \
+        Display.o \
+        Help.o \
+        Hint.o \
+        Hooks.o \
+        Object.o \
+        Screen.o \
+        Shell.o \
+        Text.o \
+        Tip.o
+
+HEADERS = \
+	Cue.h \
+	Help.h \
+	Hint.h \
+	StrDefs.h \
+	Tip.h \
+	\
+        ContextP.h \
+        CueP.h \
+        DisplayP.h \
+        HelpP.h \
+        HintP.h \
+        HooksP.h \
+        ObjectP.h \
+        ScreenP.h \
+        ShellP.h \
+        TextP.h \
+        TipP.h
+	
+
+INSTALL_H = \
+	../../include/Xsc/Cue.h \
+	../../include/Xsc/Help.h \
+	../../include/Xsc/Hint.h \
+	../../include/Xsc/StrDefs.h \
+	../../include/Xsc/Tip.h
+
+/*
+ * R4 and R5 have very different ways of building libraries.
+ * We include both methods here, so this Imakefile should work
+ * on systems with both X11R4 and X11R5 imake config files.
+ */
+#if ProjectX >= 5
+/*
+ * general rules for building normal, shared, debugged, and profiled 
+ * object files for the library.  Defined in Library.tmpl
+ */
+LibraryObjectRule()
+
+/* 
+ * rules for building the library 
+ */
+#if DoSharedLib
+#if DoNormalLib
+SharedLibraryTarget(XscHelp,XscHelpSharedLibraryRevision,$(OBJS),shared,..)
+#else
+SharedLibraryTarget(XscHelp,XscHelpSharedLibraryRevision,$(OBJS),.,.)
+#endif
+SharedLibraryDataTarget(XscHelp,XscHelpSharedLibraryRevision,$(UNSHAREDOBJS))
+#endif
+#if DoNormalLib
+NormalLibraryTarget(XscHelp,$(OBJS))
+#endif
+#if DoProfileLib
+ProfiledLibraryTarget(XscHelp,$(OBJS))
+#endif
+#if DoDebugLib
+DebuggedLibraryTarget(XscHelp,$(OBJS))
+#endif
+
+/* 
+ * rules for installing the library
+ */
+#if DoSharedLib
+InstallSharedLibrary(XscHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+InstallSharedLibraryData(XscHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+#endif
+#if DoNormalLib
+InstallLibrary(XscHelp,$(XSCHELP_LIBDIR))
+#endif
+#if DoProfileLib
+InstallLibrary(XscHelp_p,$(XSCHELP_LIBDIR))
+#endif
+#if DoDebugLib
+InstallLibrary(XscHelp_d,$(XSCHELP_LIBDIR))
+#endif
+
+#else  /* if X11R4 config files */
+#if DoSharedLib 
+# if DoDebugLib
+SharedAndDebuggedLibraryObjectRule()
+# else
+SharedLibraryObjectRule()
+# endif
+#else
+# if DoDebugLib && DoProfileLib
+DebuggedAndProfiledLibraryObjectRule()
+# else
+#  if DoDebugLib
+DebuggedLibraryObjectRule()
+#  else
+#   if DoProfileLib
+ProfiledLibraryObjectRule()
+#   else
+NormalLibraryObjectRule()
+#   endif
+#  endif
+# endif
+#endif
+
+/*
+ * always generate unshared library too 
+ */
+#if DoSharedLib
+NormalSharedLibraryTarget(XscHelp,XscHelpSharedLibraryRevision,$(OBJS))
+NormalSharedLibraryDataTarget(XscHelp,XscHelpSharedLibraryRevision,$(UNSHAREDOBJS))
+InstallSharedLibrary(XscHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+InstallSharedLibraryData(XscHelp,XscHelpSharedLibraryRevision,$(XSCHELP_LIBDIR))
+#endif
+NormalLibraryTarget(XscHelp,$(OBJS))
+InstallLibrary(XscHelp,$(XSCHELP_LIBDIR))
+
+LintLibraryTarget(XscHelp,$(SRCS))
+InstallLintLibrary(XscHelp,$(LINTLIBDIR))
+
+#if DoProfileLib
+ProfiledLibraryTarget(XscHelp,$(OBJS))
+InstallLibrary(XscHelp_p,$(XSCHELP_LIBDIR))
+#endif
+
+#if DoDebugLib
+DebuggedLibraryTarget(XscHelp,$(OBJS))
+#endif
+#endif  /* R5 or R4 */
+
+/* rule to install the header files */
+InstallMultiple($(INSTALL_H),$(XSCHELP_INCDIR)/Xsc)
+
+/* rule for make depend: depends all in $SRCS using $ALLDEFINES */
+DependTarget()
+
